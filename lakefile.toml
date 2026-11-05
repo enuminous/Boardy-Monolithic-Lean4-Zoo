@@ -1,0 +1,7 @@
+name = "boardyStudy"
+version = "0.1.0"
+defaultTargets = ["BoardyStudy"]
+moreLeanArgs = ["-DwarningAsError=true"]
+
+[[lean_lib]]
+name = "BoardyStudy"

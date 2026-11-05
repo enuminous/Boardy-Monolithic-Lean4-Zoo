@@ -1,0 +1,469 @@
+{
+  "schema_version": 1,
+  "subject": "Boardy observed behavior",
+  "source_repository": "https://github.com/enuminous/Monolithic-Zoo-Lean4",
+  "source_commit": "509480eb63d9fa2ca89f17506793a1f9412d2439",
+  "assessment": "No animal has been executed on Boardy behavioral data in this study.",
+  "animals": [
+    {
+      "id": 1,
+      "name": "TORTOISE",
+      "module": "Tortoise",
+      "operation_scope": "ordered split; temporal separation contract; Brier gain",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Tortoise.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 2,
+      "name": "OWL",
+      "module": "Owl",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Owl.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 3,
+      "name": "OCTOPUS",
+      "module": "Octopus",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Octopus.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 4,
+      "name": "GECKO",
+      "module": "Gecko",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Gecko.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 5,
+      "name": "HIVE",
+      "module": "Hive",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Hive.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 6,
+      "name": "EAGLE",
+      "module": "Eagle",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Eagle.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 7,
+      "name": "CRAB",
+      "module": "Crab",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Crab.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 8,
+      "name": "SHEPHERD",
+      "module": "Shepherd",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Shepherd.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 9,
+      "name": "PULSE",
+      "module": "Pulse",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Pulse.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 10,
+      "name": "CAT",
+      "module": "Cat",
+      "operation_scope": "ablation penalty and sign classifier; exact-integer sign reference",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Cat.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 11,
+      "name": "FOX",
+      "module": "Fox",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Fox.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 12,
+      "name": "SPIDER",
+      "module": "Spider",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Spider.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 13,
+      "name": "RAVEN",
+      "module": "Raven",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Raven.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 14,
+      "name": "DOLPHIN",
+      "module": "Dolphin",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Dolphin.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 15,
+      "name": "ANT",
+      "module": "Ant",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Ant.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 16,
+      "name": "MOTH",
+      "module": "Moth",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Moth.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 17,
+      "name": "SHARK",
+      "module": "Shark",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Shark.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 18,
+      "name": "PENGUIN",
+      "module": "Penguin",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Penguin.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 19,
+      "name": "BAT",
+      "module": "Bat",
+      "operation_scope": "verdict kernel with source placebo precedence; fitting excluded",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Bat.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 20,
+      "name": "HEDGEHOG",
+      "module": "Hedgehog",
+      "operation_scope": "generalization verdict and environment separation obligation; training excluded",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Hedgehog.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 21,
+      "name": "CROCODILE",
+      "module": "Crocodile",
+      "operation_scope": "difference-in-differences kernel and conditional identification contract",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Crocodile.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 22,
+      "name": "DRAGON",
+      "module": "Dragon",
+      "operation_scope": "rank aggregation of precomputed component columns; feature extraction and model training not ported",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Dragon.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 23,
+      "name": "TURTLE",
+      "module": "Turtle",
+      "operation_scope": "summary verdict and veto precedence; group normalization supplied",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Turtle.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 24,
+      "name": "MAGPIE",
+      "module": "Magpie",
+      "operation_scope": "groundedness and history-dependent alarm; entropy/storage excluded",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Magpie.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 25,
+      "name": "WOLF",
+      "module": "Wolf",
+      "operation_scope": "local channel contribution, weight, EMA and alarm contract; graph aggregation supplied",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Wolf.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 26,
+      "name": "ELEPHANT",
+      "module": "Elephant",
+      "operation_scope": "active-event filter and fuel-bounded lineage abstraction; full memory API excluded",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Elephant.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 27,
+      "name": "CHAMELEON",
+      "module": "Chameleon",
+      "operation_scope": "unexplained/noise-adjusted excess; supplied centroid distances",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Chameleon.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 28,
+      "name": "JELLYFISH",
+      "module": "Jellyfish",
+      "operation_scope": "dynamic edge weight, flow, next health and harm; graph aggregation supplied",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Jellyfish.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 29,
+      "name": "BEAVER",
+      "module": "Beaver",
+      "operation_scope": "acceptance contract including bounds and rollback flags; external repair not certified",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Beaver.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 30,
+      "name": "MANTIS",
+      "module": "Mantis",
+      "operation_scope": "calibrated z-score aggregation and state decision; baseline fitting supplied",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Mantis.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 31,
+      "name": "BISON",
+      "module": "Bison",
+      "operation_scope": "single-component queue transition; exact natural-number capacity bound",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Bison.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 32,
+      "name": "WEASEL",
+      "module": "Weasel",
+      "operation_scope": "bounded finding filter; target search/enumeration remains external",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Weasel.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 33,
+      "name": "SALMON",
+      "module": "Salmon",
+      "operation_scope": "unresolved-mass kernel and fuel-bounded trace abstraction; weighted tracing excluded",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Salmon.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 34,
+      "name": "ORCA",
+      "module": "Orca",
+      "operation_scope": "handoff checks and aggregate coordination formula; pairwise metrics supplied",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Orca.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 35,
+      "name": "MOLE",
+      "module": "Mole",
+      "operation_scope": "observability gap and coverage-gated hidden-failure flag; indicators supplied",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Mole.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 36,
+      "name": "LYNX",
+      "module": "Lynx",
+      "operation_scope": "novelty, yield and emergence contract; reference distances supplied",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Lynx.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 37,
+      "name": "HORSE",
+      "module": "Horse",
+      "operation_scope": "trust/workload/joint-effectiveness kernels and handoff contract",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Horse.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 38,
+      "name": "TERMITE",
+      "module": "Termite",
+      "operation_scope": "agent update and synchronous mapping; graph weighted inputs supplied",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Termite.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 39,
+      "name": "PHOENIX",
+      "module": "Phoenix",
+      "operation_scope": "recovery completeness and hold-window predicate; fidelity inputs supplied",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Phoenix.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 40,
+      "name": "COBRA",
+      "module": "Cobra",
+      "operation_scope": "persistent/proxy divergence and risk kernels; deltas supplied",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Cobra.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 41,
+      "name": "WHALE",
+      "module": "Whale",
+      "operation_scope": "cumulative deviation, history gap and stability formula; slope supplied",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Whale.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 42,
+      "name": "FALCON",
+      "module": "Falcon",
+      "operation_scope": "latency/missed/reaction-margin kernel; streaming threshold monitor excluded",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Falcon.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 43,
+      "name": "RHINO",
+      "module": "Rhino",
+      "operation_scope": "retention, amplification and graceful-failure kernels; invariants supplied",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Rhino.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 44,
+      "name": "BONOBO",
+      "module": "Bonobo",
+      "operation_scope": "gain, exploitation and cooperation score; dispersion supplied",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Bonobo.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 45,
+      "name": "AXOLOTL",
+      "module": "Axolotl",
+      "operation_scope": "recovery, efficiency and resilience; transformation/invariants supplied",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Axolotl.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    },
+    {
+      "id": 46,
+      "name": "BUTTERFLY",
+      "module": "Butterfly",
+      "operation_scope": "layer update, amplification and bounded trajectory; graph comparison excluded",
+      "source_url": "https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/509480eb63d9fa2ca89f17506793a1f9412d2439/Butterfly.lean",
+      "evidence_status": "unresolved",
+      "execution": "not_run",
+      "reason": "No validated Boardy-to-operation input mapping or held-out behavioral dataset."
+    }
+  ]
+}
