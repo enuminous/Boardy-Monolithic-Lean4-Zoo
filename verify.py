@@ -16,8 +16,9 @@ def run(*args):
 
 
 def main():
-    source = (ROOT / "BoardyStudy.lean").read_text()
-    for name in ("BoardyStudy.lean", "Regression.lean"):
+    modules = ("BoardyStudy", "ReplayProtected")
+    regressions = ("Regression.lean", "ReplayRegression.lean")
+    for name in tuple(f"{module}.lean" for module in modules) + regressions:
         text = (ROOT / name).read_text()
         if re.search(r"\b(sorry|admit|axiom|native_decide|unsafe)\b", text):
             raise RuntimeError(f"Disallowed proof escape in {name}")
@@ -27,11 +28,14 @@ def main():
     assert all(x["execution"] == "not_run" and x["evidence_status"] == "unresolved"
                for x in roster)
     run("lake", "build")
-    run("lake", "env", "lean", "-DwarningAsError=true", "Regression.lean")
-    names = re.findall(r"^theorem\s+(\w+)", source, re.MULTILINE)
+    for regression in regressions:
+        run("lake", "env", "lean", "-DwarningAsError=true", regression)
+    names = [f"{module}.{name}" for module in modules
+             for name in re.findall(r"^theorem\s+(\w+)",
+                                    (ROOT / f"{module}.lean").read_text(), re.MULTILINE)]
     audit = ROOT / ".lake/BoardyAudit.lean"
-    audit.write_text("import BoardyStudy\n" + "\n".join(
-        f"#print axioms BoardyStudy.{name}" for name in names) + "\n")
+    audit.write_text("\n".join(f"import {module}" for module in modules) + "\n" + "\n".join(
+        f"#print axioms {name}" for name in names) + "\n")
     output = run("lake", "env", "lean", "-DwarningAsError=true", str(audit))
     reports = re.findall(r"depends on axioms:\s*\[([^\]]*)\]", output)
     no_axioms = output.count("does not depend on any axioms")
@@ -40,7 +44,9 @@ def main():
     for report in reports:
         used = {s.strip() for s in report.split(",") if s.strip()}
         assert used <= allowed, f"Unexpected axioms: {used - allowed}"
-    print(f"PASS: {len(names)} named theorems audited; regression file checked; "
+    counts = {name: len(re.findall(r"^example\s*:", (ROOT / name).read_text(), re.MULTILINE))
+              for name in regressions}
+    print(f"PASS: {len(names)} named theorems audited; regression examples {counts}; "
           "46 Zoo entries explicitly unresolved for Boardy.")
 
 

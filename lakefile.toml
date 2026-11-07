@@ -1,7 +1,10 @@
 name = "boardyStudy"
 version = "0.1.0"
-defaultTargets = ["BoardyStudy"]
+defaultTargets = ["BoardyStudy", "ReplayProtected"]
 moreLeanArgs = ["-DwarningAsError=true"]
 
 [[lean_lib]]
 name = "BoardyStudy"
+
+[[lean_lib]]
+name = "ReplayProtected"

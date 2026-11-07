@@ -1,0 +1,21 @@
+✔ [2/3] Built BoardyStudy (1.8s)
+Build completed successfully (3 jobs).
+'BoardyStudy.step_preserves_safe' depends on axioms: [propext]
+'BoardyStudy.run_preserves_safe' depends on axioms: [propext]
+'BoardyStudy.reachable_booking_has_both_acceptances' depends on axioms: [propext]
+'BoardyStudy.contact_release_requires_both_consents' depends on axioms: [propext]
+'BoardyStudy.completed_not_owed' depends on axioms: [propext]
+'BoardyStudy.initial_safe' depends on axioms: [propext]
+'BoardyStudy.step_preserves_safe' depends on axioms: [propext]
+'BoardyStudy.run_preserves_safe' depends on axioms: [propext]
+'BoardyStudy.reachable_booking_has_both_acceptances' depends on axioms: [propext]
+'BoardyStudy.contact_release_requires_both_consents' depends on axioms: [propext]
+'BoardyStudy.stale_acceptance_A_ignored' depends on axioms: [propext]
+'BoardyStudy.stale_acceptance_B_ignored' depends on axioms: [propext]
+'BoardyStudy.cancellation_invalidates' depends on axioms: [propext]
+'BoardyStudy.proposal_requires_new_acceptance' depends on axioms: [propext]
+'BoardyStudy.recap_cannot_create_booking' does not depend on any axioms
+'BoardyStudy.interest_cannot_create_booking' does not depend on any axioms
+'BoardyStudy.completed_not_owed' depends on axioms: [propext]
+'BoardyStudy.automated_action_not_confirmed' depends on axioms: [propext]
+PASS: 13 named theorems audited; regression file checked; 46 Zoo entries explicitly unresolved for Boardy.

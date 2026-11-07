@@ -12,6 +12,18 @@ properties of this repository's code, **not a certification of Boardy**.
 The study also preserves a negative result: this version does not prevent
 duplicate introductions. No real Boardy behavioral dataset has been evaluated.
 
+## Consent replay extension — November 7, 2026
+
+[ReplayProtected.lean](ReplayProtected.lean) adds per-participant consent
+generations while retaining the original model and regressions unchanged as the
+baseline. [ReplayRegression.lean](ReplayRegression.lean) demonstrates the baseline
+replay gap, rejected replay and successful legitimate reauthorization.
+See the [patch explanation and local verification record](study/REPLAY-PATCH.md)
+for exact scope, assumptions and results. `python3 verify.py` now checks both
+models. Local verification passed 40 named theorems and 60 regression examples.
+Authentication and faithful event extraction remain external assumptions;
+this extension makes no vulnerability claim about Boardy's deployed system.
+
 ## Read the study
 
 - [Formal study and findings](study/STUDY.md): questions, assumptions, proofs,
