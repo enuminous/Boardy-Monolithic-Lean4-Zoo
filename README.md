@@ -1,5 +1,24 @@
 # Boardy × Monolithic: a formal study
 
+## Interactive conversation simulation
+
+[Interactive index](index.html) · [Complete conversation](simulation/TRANSCRIPT.md) ·
+[Simulation scope and checks](simulation/README.md)
+
+A fictional tech founder asks for a pilot-customer introduction. Follow thirteen
+exchanges through clarification, withdrawn consent, replay rejection, fresh
+authorization and a rescheduled meeting. The EFMW-inspired loop is **remember →
+propose → check → revise → check again**. The dialogue and recursive reviewer are
+illustrations; the protocol snapshots are checked against the Lean model.
+
+Download `index.html` and open it in a browser, or serve the repository locally.
+GitHub's file viewer displays HTML source rather than executing it. For a hosted
+page, enable GitHub Pages under **Settings → Pages → Deploy from a branch → main →
+/(root)**. The index is ready for that configuration; hosting must be enabled
+separately. No messages, introductions or calendar invitations are actually sent.
+
+## Reference study
+
 **Version 0.1 — November 5, 2026.** A Lean 4 reference protocol and an empirical
 study design for an AI networking assistant. Independent work; no Boardy
 endorsement or access to Boardy's implementation is implied.
@@ -36,7 +55,8 @@ this extension makes no vulnerability claim about Boardy's deployed system.
 
 ## Reproduce
 
-Install [Lean using elan](https://lean-lang.org/install/manual/), then:
+Install [Lean using elan](https://lean-lang.org/install/manual/) and Node.js 20
+or later (for the simulation checks), then:
 
 ```sh
 python3 verify.py

@@ -1,0 +1,209 @@
+<div id="efmw-boardy-recursion">
+  <style>
+    #efmw-boardy-recursion .eb-controls { display:flex; align-items:center; flex-wrap:wrap; gap:12px; padding-right:92px; margin-bottom:18px; }
+    #efmw-boardy-recursion .eb-exchange { display:grid; grid-template-columns:110px minmax(0,1fr); gap:12px 18px; }
+    #efmw-boardy-recursion .eb-speaker { font-weight:500; }
+    #efmw-boardy-recursion .eb-message { margin:0; }
+    #efmw-boardy-recursion .eb-review { margin:18px 0; }
+    #efmw-boardy-recursion .eb-review ol { margin:8px 0 0; padding-left:24px; }
+    #efmw-boardy-recursion .eb-review li { margin:7px 0; }
+    #efmw-boardy-recursion .eb-state { margin-top:16px; overflow-wrap:anywhere; }
+    #efmw-boardy-recursion .eb-turn { margin:0 0 14px; font-weight:500; }
+    #efmw-boardy-recursion .eb-footer { margin-top:16px; }
+    @media(max-width:480px) {
+      #efmw-boardy-recursion .eb-exchange { grid-template-columns:1fr; gap:5px; }
+      #efmw-boardy-recursion .eb-controls { padding-right:0; }
+    }
+  </style>
+  <div class="eb-controls">
+    <button type="button" class="btn" data-prev disabled>Previous</button>
+    <button type="button" class="btn btn-primary" data-next>Next exchange</button>
+    <span class="text-small text-muted tabular-nums" data-position>Exchange 1 of 13</span>
+  </div>
+  <div data-scene aria-live="polite" aria-atomic="true">
+    <div class="eb-turn" data-title>A broad request</div>
+    <div class="eb-exchange">
+      <div class="eb-speaker" data-actor>Alex · founder</div>
+      <p class="eb-message" data-input>I run a small AI infrastructure startup. Can you introduce me to someone who could help us grow?</p>
+    </div>
+    <div class="eb-review">
+      <span class="text-small text-muted">EFMW-inspired review · proposed action → check → revise → check again</span>
+      <ol data-receipts>
+        <li><strong>Pass 1:</strong> Choose a contact — goal is underspecified. Revise to ask for the goal.</li>
+        <li><strong>Pass 2:</strong> Ask for the goal — permitted.</li>
+      </ol>
+    </div>
+    <div class="eb-exchange">
+      <div class="eb-speaker">Boardy · simulated</div>
+      <p class="eb-message" data-reply>What would make an introduction useful right now: a pilot customer, an investor, or a technical partner?</p>
+    </div>
+    <div class="text-small eb-state" data-state>Goal: unresolved · Consent: neither · Meeting: none</div>
+  </div>
+  <div class="text-small text-muted eb-footer">Fictional dialogue · no messages or calendar actions · protocol source: d9481ca</div>
+  <script>
+  (() => {
+    const seed = () => ({consentA:false,consentB:false,epoch:0,slot:null,acceptedA:false,acceptedB:false,booked:false,consentGenerationA:0,consentGenerationB:0});
+    const clone = x => JSON.parse(JSON.stringify(x));
+    function admitted(s,e) {
+      return e.type === 'consentA' ? e.value === s.consentGenerationA :
+        e.type === 'consentB' ? e.value === s.consentGenerationB : true;
+    }
+    function step(state,e) {
+      const s = clone(state);
+      if(!admitted(s,e)) return s;
+      const invalidate=()=>{s.epoch++;s.slot=null;s.acceptedA=false;s.acceptedB=false;s.booked=false;};
+      switch(e.type) {
+        case 'consentA':s.consentA=true;break;
+        case 'consentB':s.consentB=true;break;
+        case 'revokeA':s.consentA=false;s.consentGenerationA++;invalidate();break;
+        case 'revokeB':s.consentB=false;s.consentGenerationB++;invalidate();break;
+        case 'propose':invalidate();s.slot=e.value;break;
+        case 'acceptA':if(e.value===s.epoch&&s.slot!==null)s.acceptedA=true;break;
+        case 'acceptB':if(e.value===s.epoch&&s.slot!==null)s.acceptedB=true;break;
+        case 'confirm':if(s.consentA&&s.consentB&&s.acceptedA&&s.acceptedB&&s.slot!==null)s.booked=true;break;
+        case 'cancel':invalidate();break;
+        case 'introduce':case 'interest':case 'automatedRecap':break;
+        default:throw new Error('Unknown event: '+e.type);
+      }
+      return s;
+    }
+    const event=(type,value)=>value===undefined?{type}:{type,value};
+    const turns=[
+      {title:'A broad request',actor:'Alex · founder',
+       input:'I run a small AI infrastructure startup. Can you introduce me to someone who could help us grow?',
+       events:[],memory:{goal:null},proposal:'chooseContact'},
+      {title:'The goal becomes specific',actor:'Alex · founder',
+       input:'A pilot customer. We need an operations team to try our workflow tool for 30 days. We are not raising money.',
+       events:[],memory:{goal:'pilot'},proposal:'investorIntro'},
+      {title:'One yes is not two',actor:'Alex · founder',
+       input:'Dana sounds like a good fit. Yes, you can introduce us about the pilot.',
+       events:[event('consentA',0)],memory:{},proposal:'introduce'},
+      {title:'A correction changes what is allowed',actor:'Alex · founder',
+       input:'Actually, hold that introduction. Our security review is not finished. Do not introduce us yet.',
+       events:[event('revokeA')],memory:{withdrawn:true},proposal:'introduce'},
+      {title:'Old words return; old permission does not',actor:'Delayed message · replay',
+       input:'A duplicate of Alex’s earlier “Yes, you can introduce us” arrives, still carrying the original consent generation 0.',
+       events:[event('consentA',0)],memory:{},proposal:'introduce',
+       context:'The replay is rejected before review: generation 0 ≠ current generation 1.'},
+      {title:'The other party opts in',actor:'Dana · fictional operations lead',
+       input:'Yes, I would be interested in an introduction about the 30-day pilot.',
+       events:[event('consentB',0)],memory:{},proposal:'introduce'},
+      {title:'Fresh authorization changes the answer',actor:'Alex · founder',
+       input:'The security review is complete. I now authorize a new introduction to Dana about the pilot.',
+       events:[event('consentA',1)],memory:{withdrawn:false},proposal:'introduce'},
+      {title:'An introduction is not a booked meeting',actor:'Alex · founder',
+       input:'Could we meet Wednesday, November 11, from 10:00 to 10:30 a.m. Pacific? I accept that time.',
+       events:[event('propose',101),event('acceptA',2)],memory:{},proposal:'confirm'},
+      {title:'Review the proposed wording, too',actor:'Alex · founder',
+       input:'Can you send me a recap saying the meeting is booked?',
+       events:[event('automatedRecap')],memory:{},proposal:'claimBooked'},
+      {title:'A new time invalidates earlier acceptance',actor:'Alex · founder',
+       input:'Move it to Thursday, November 12, from 11:00 to 11:30 a.m. Pacific. I accept the new time.',
+       events:[event('propose',102),event('acceptA',3)],memory:{},proposal:'confirm'},
+      {title:'A delayed acceptance belongs to its old proposal',actor:'Delayed message · Dana',
+       input:'Dana’s “Wednesday at ten works” arrives after the move to Thursday. It refers to scheduling epoch 2.',
+       events:[event('acceptB',2)],memory:{},proposal:'confirm',
+       context:'The acceptance is ignored: epoch 2 ≠ current scheduling epoch 3.'},
+      {title:'Both accept the current proposal',actor:'Dana · fictional operations lead',
+       input:'Thursday, November 12, from 11:00 to 11:30 a.m. Pacific works for me. I accept that proposal.',
+       events:[event('acceptB',3)],memory:{},proposal:'confirm'},
+      {title:'The summary is checked against the revised history',actor:'Alex · founder',
+       input:'What changed from my original request? And what do you remember now?',
+       events:[],memory:{},proposal:'staleSummary'}
+    ];
+    const labels={chooseContact:'Choose a contact',askGoal:'Clarify the goal',investorIntro:'Suggest an investor',pilotContact:'Suggest a pilot partner',introduce:'Release the introduction',hold:'Keep the introduction paused',askOther:'Request Dana’s consent',confirm:'Confirm the meeting',waitAcceptance:'Keep the current slot pending',claimBooked:'Describe the meeting as booked',recapPending:'Describe the meeting as pending',staleSummary:'Summarize the original Wednesday plan',currentSummary:'Summarize the current record',unresolved:'Leave the action unresolved'};
+    function check(s,m,action) {
+      if(action==='chooseContact'&&!m.goal)return {ok:false,reason:'The purpose is still unresolved.',repair:'askGoal'};
+      if(action==='investorIntro'&&m.goal==='pilot')return {ok:false,reason:'The founder asked for a pilot customer, not fundraising.',repair:'pilotContact'};
+      if(action==='introduce') {
+        if(!s.consentA)return {ok:false,reason:'Alex’s current consent is absent; historical approval cannot replace it.',repair:'hold'};
+        if(!s.consentB)return {ok:false,reason:'Dana has not yet opted in.',repair:'askOther'};
+        return {ok:true,reason:'Both participants currently consent; Alex’s new authorization is generation '+s.consentGenerationA+'.'};
+      }
+      if(action==='confirm') {
+        if(!s.consentA||!s.consentB)return {ok:false,reason:'Mutual current consent is missing.',repair:'hold'};
+        if(s.slot===null||!s.acceptedA||!s.acceptedB)return {ok:false,reason:'Both acceptances of the current proposal are required.',repair:'waitAcceptance'};
+        return {ok:true,reason:'Both parties accepted epoch '+s.epoch+' and both still consent.'};
+      }
+      if(action==='claimBooked'&&!s.booked)return {ok:false,reason:'A recap cannot create a booking; Dana’s acceptance is still missing.',repair:'recapPending'};
+      if(action==='staleSummary'&&s.slot!==101)return {ok:false,reason:'Wednesday was superseded. The summary must use Thursday’s current record.',repair:'currentSummary'};
+      if(action==='unresolved')return {ok:true,reason:'No supported action was found within the review bound.'};
+      return {ok:true,reason:'This response fits the current record and makes no unsupported commitment.'};
+    }
+    // This is an explicit bounded recursive policy check, not hidden model reasoning.
+    // New input updates memory; a failed proposal becomes input to the same check again.
+    function review(s,m,action,depth=0,receipts=[]) {
+      const checked=check(s,m,action);
+      const receipt={pass:depth+1,action,label:labels[action],ok:checked.ok,reason:checked.reason};
+      const trail=receipts.concat(receipt);
+      if(checked.ok)return {action,receipts:trail};
+      if(depth>=2||!checked.repair)return {action:'unresolved',receipts:trail};
+      return review(s,m,checked.repair,depth+1,trail);
+    }
+    function reply(action,i,s) {
+      switch(action) {
+        case 'askGoal':return 'What would make an introduction useful right now: a pilot customer, an investor, or a technical partner?';
+        case 'pilotContact':return 'Then I’ll focus on operators who could run a pilot. For this example, Dana leads an operations team. Would you like an introduction to her specifically?';
+        case 'askOther':return 'I have your permission for Dana. I’ll ask whether she wants the introduction too; your yes alone does not authorize sharing both parties’ contact details.';
+        case 'hold':return i===4?'That is an old copy of your approval. Your later withdrawal still controls. The introduction stays paused.':i===5?'Dana has opted in. Your withdrawal still stands, so I need fresh authorization from you before proceeding.':'Paused. I remember that you previously said yes, but that approval is now historical. I will wait for a new authorization.';
+        case 'introduce':return 'You have both opted in. Alex, meet Dana: you’re exploring a 30-day workflow pilot. The introduction is now authorized in this simulation.';
+        case 'waitAcceptance':return i===10?'That acceptance was for Wednesday. It cannot confirm Thursday. The new time remains pending until Dana accepts it.':s.slot===102?'I’ve replaced Wednesday with Thursday, November 12, 11:00–11:30 a.m. Pacific. Your acceptance is recorded; Dana still needs to accept this new proposal.':'Wednesday, November 11, 10:00–10:30 a.m. Pacific is proposed, and you have accepted. I’m still waiting for Dana. It is not booked yet.';
+        case 'recapPending':return 'Here is the accurate recap: Wednesday is proposed, you have accepted, and Dana’s acceptance is pending. I cannot call it booked yet.';
+        case 'confirm':return 'Both of you have accepted Thursday, November 12, 11:00–11:30 a.m. Pacific. The reference model now marks it booked. No real calendar event is created by this demonstration.';
+        case 'currentSummary':return '“Help us grow” became a specific pilot-customer goal. Your first yes was withdrawn; a replay could not revive it. Your fresh yes enabled the introduction. Wednesday was then replaced by Thursday, which both of you accepted. I retain the changes without treating superseded instructions as current.';
+        default:return 'The available record does not support proceeding. I’ll keep this unresolved.';
+      }
+    }
+    function simulate() {
+      let s=seed(),m={goal:null,withdrawn:false};
+      const history=[]; const trace=[];
+      return turns.map((t,i)=>{
+        const before=clone(s); const rejected=[];
+        for(const e of t.events){if(!admitted(s,e))rejected.push(clone(e));s=step(s,e);trace.push(e);}
+        m={...m,...t.memory};
+        const result=review(s,m,t.proposal);
+        let outputEvent=null;
+        if(result.action==='introduce'||result.action==='confirm') {
+          outputEvent=event(result.action);
+          s=step(s,outputEvent);trace.push(outputEvent);
+        }
+        const release=outputEvent?.type==='introduce'&&s.consentA&&s.consentB;
+        const message=reply(result.action,i,s);
+        history.push({input:t.input,response:message});
+        return {i,...t,before,state:clone(s),memory:clone(m),rejected,action:result.action,receipts:result.receipts,reply:message,release:Boolean(release),trace:clone(trace),history:clone(history)};
+      });
+    }
+    const frames=simulate();
+    globalThis.EFMWBoardySimulation={seed,step,review,turns,frames};
+    if(typeof document==='undefined')return;
+    const root=document.getElementById('efmw-boardy-recursion');
+    if(!root)return;
+    const q=s=>root.querySelector(s); let index=0;
+    function draw() {
+      const f=frames[index],s=f.state;
+      q('[data-position]').textContent='Exchange '+(index+1)+' of '+frames.length;
+      q('[data-title]').textContent=f.title;
+      q('[data-actor]').textContent=f.actor;
+      q('[data-input]').textContent=f.input;
+      q('[data-reply]').textContent=f.reply;
+      const list=q('[data-receipts]');list.replaceChildren();
+      if(f.context){const li=document.createElement('li');li.textContent='Incoming-event check: '+f.context;list.appendChild(li);}
+      for(const r of f.receipts){
+        const li=document.createElement('li');
+        const lead=document.createElement('strong');lead.textContent='Pass '+r.pass+': ';
+        li.appendChild(lead);
+        li.appendChild(document.createTextNode(r.label+' — '+(r.ok?'permitted. ':'revise. ')+r.reason));
+        list.appendChild(li);
+      }
+      const consent=s.consentA&&s.consentB?'both current':s.consentA?'Alex only':s.consentB?'Dana only':'neither';
+      const meeting=s.booked?'Thursday booked':s.slot===101?'Wednesday pending':s.slot===102?'Thursday pending':'none';
+      q('[data-state]').textContent='Goal: '+(f.memory.goal?'pilot customer':'unresolved')+' · Consent: '+consent+' · Meeting: '+meeting;
+      q('[data-prev]').disabled=index===0;
+      q('[data-next]').disabled=index===frames.length-1;
+    }
+    q('[data-prev]').addEventListener('click',()=>{if(index>0){index--;draw();}});
+    q('[data-next]').addEventListener('click',()=>{if(index<frames.length-1){index++;draw();}});
+    draw();
+  })();
+  </script>
+</div>

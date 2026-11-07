@@ -17,7 +17,7 @@ def run(*args):
 
 def main():
     modules = ("BoardyStudy", "ReplayProtected")
-    regressions = ("Regression.lean", "ReplayRegression.lean")
+    regressions = ("Regression.lean", "ReplayRegression.lean", "SimulationRegression.lean")
     for name in tuple(f"{module}.lean" for module in modules) + regressions:
         text = (ROOT / name).read_text()
         if re.search(r"\b(sorry|admit|axiom|native_decide|unsafe)\b", text):
@@ -27,6 +27,7 @@ def main():
     assert {x["id"] for x in roster} == set(range(1, 47))
     assert all(x["execution"] == "not_run" and x["evidence_status"] == "unresolved"
                for x in roster)
+    run("node", "simulation/verify.cjs")
     run("lake", "build")
     for regression in regressions:
         run("lake", "env", "lean", "-DwarningAsError=true", regression)
